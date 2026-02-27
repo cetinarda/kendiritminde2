@@ -1,0 +1,40 @@
+<!-- ================================================================
+   TEAM SECTION - Alan Tutucular & Misafirler / Kozmik Geminin Mürettebatı
+   Bu dosyayı tekrar eklemek için:
+   1. Aşağıdaki CSS bloğunu index.html içindeki <style> etiketine yapıştır
+   2. Aşağıdaki HTML bloğunu istediğin yere yapıştır
+================================================================ -->
+
+<!-- ── CSS (index.html içindeki <style> bloğuna ekle) ── -->
+<!--
+/* ── TEAM ── */
+.team-section{background:var(--void);}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1.3rem;margin-top:3rem;}
+.team-card{text-align:center;padding:1.5rem 1rem;background:rgba(255,255,255,0.018);
+  border:1px solid rgba(255,255,255,0.055);border-radius:16px;transition:border-color 0.3s;}
+.team-card:hover{border-color:rgba(106,140,110,0.28);}
+.team-avatar{width:54px;height:54px;border-radius:50%;background:var(--moss);
+  margin:0 auto 0.75rem;display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;border:1px solid rgba(106,140,110,0.2);}
+.team-name{font-size:0.9rem;color:var(--cream);margin-bottom:0.18rem;}
+.team-role{font-size:0.73rem;color:var(--sage);}
+-->
+
+<!-- ── HTML ── -->
+<!-- TEAM -->
+<section class="section team-section">
+  <div class="section-inner">
+    <div class="eyebrow" data-tr="Alan Tutucular & Misafirler" data-en="Space Holders & Guests">Alan Tutucular & Misafirler</div>
+    <h2 class="section-title"><span data-tr="Kozmik Geminin" data-en="The Cosmic Ship's">Kozmik Geminin</span><br><em data-tr="Mürettebatı" data-en="Crew">Mürettebatı</em></h2>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-avatar">⚓</div><div class="team-name">Arda Çetin</div><div class="team-role" data-tr="Alan Tutucu · Kaptan" data-en="Space Holder · Captain">Alan Tutucu · Kaptan</div></div>
+      <div class="team-card"><div class="team-avatar">🌙</div><div class="team-name">Kamer Aslı Albay</div><div class="team-role" data-tr="Alan Tutucu" data-en="Space Holder">Alan Tutucu</div></div>
+      <div class="team-card"><div class="team-avatar">🔔</div><div class="team-name">Sıla Pamuk</div><div class="team-role" data-tr="Alan Tutucu · Ses Şifacısı" data-en="Space Holder · Sound Healer">Alan Tutucu · Ses Şifacısı</div></div>
+      <div class="team-card"><div class="team-avatar">⭐</div><div class="team-name">Onur Güven</div><div class="team-role" data-tr="Simya Bilgileri" data-en="Alchemy Channel">Simya Bilgileri</div></div>
+      <div class="team-card"><div class="team-avatar">♈</div><div class="team-name">Yasemin</div><div class="team-role" data-tr="Astroloji" data-en="Astrology">Astroloji</div></div>
+      <div class="team-card"><div class="team-avatar">💧</div><div class="team-name">Merve Şahin</div><div class="team-role" data-tr="Su Şifacısı" data-en="Water Healer">Su Şifacısı</div></div>
+      <div class="team-card"><div class="team-avatar">🎨</div><div class="team-name">Ege Altan</div><div class="team-role" data-tr="Görsel Sanat Direktörü" data-en="Visual Art Director">Görsel Sanat Direktörü</div></div>
+      <div class="team-card"><div class="team-avatar">🎵</div><div class="team-name">Eser & Bülend</div><div class="team-role" data-tr="Sanatçı Misafirleri" data-en="Artist Guests">Sanatçı Misafirleri</div></div>
+    </div>
+  </div>
+</section>
