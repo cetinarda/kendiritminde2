@@ -234,6 +234,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0.9rem 3rem;
 .ticket-card.featured .btn-select{background:var(--gold);color:var(--void);border-color:var(--gold);}
 .btn-select:hover{background:var(--moss);border-color:var(--moss);color:var(--cream);}
 .ticket-card.featured .btn-select:hover{background:var(--pale-gold);}
+.btn-select:disabled{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4);border-color:rgba(255,255,255,0.1);cursor:not-allowed;}
+.btn-select:disabled:hover{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4);border-color:rgba(255,255,255,0.1);}
+.ticket-card.featured .btn-select:disabled{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4);border-color:rgba(255,255,255,0.1);}
+.ticket-card.featured .btn-select:disabled:hover{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4);}
 .payment-note{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:1rem;}
 .pay-item{display:flex;align-items:flex-start;gap:0.7rem;padding:1rem 1.2rem;
   background:rgba(46,74,48,0.11);border-radius:12px;font-size:0.8rem;color:var(--mist);line-height:1.5;}
@@ -568,13 +572,12 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
 <section class="section tickets-section" id="biletler">
   <div class="section-inner">
     <div class="eyebrow" data-tr="Kayıt & Biletler" data-en="Registration & Tickets">Kayıt & Biletler</div>
-    <h2 class="section-title"><em data-tr="Kayıtlar" data-en="Registration">Kayıtlar</em><br><span data-tr="Açıldı" data-en="Open">Açıldı</span></h2>
+    <h2 class="section-title"><em data-tr="Kayıtlar" data-en="Registration">Kayıtlar</em><br><span data-tr="Sona Erdi" data-en="Closed">Sona Erdi</span></h2>
     <div class="erken-banner">
       <div>
-        <div class="elabel" data-tr="Sınırlı Sayıda — Son Kontenjanlar" data-en="Limited Spots — Last Availability">Sınırlı Sayıda — Son Kontenjanlar</div>
-        <p data-tr="Müdavim indirimi son kayıt gününe kadar geçerlidir." data-en="Returning guest discount valid until last registration day.">Müdavim indirimi son kayıt gününe kadar geçerlidir.</p>
+        <div class="elabel" data-tr="Kayıtlarımız Sona Ermiştir" data-en="Registration Has Closed">Kayıtlarımız Sona Ermiştir</div>
+        <p data-tr="Bu yıl için kayıt almayı sonlandırdık. İlginiz için çok teşekkür ederiz." data-en="We have closed registration for this year. Thank you so much for your interest.">Bu yıl için kayıt almayı sonlandırdık. İlginiz için çok teşekkür ederiz.</p>
       </div>
-      <div class="pulse-dot"></div>
     </div>
     <div class="ticket-grid">
       <!-- Baykuş -->
@@ -603,7 +606,7 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
         </div>
         <div class="ticket-footer">
           <div><div class="old-price">39.000 ₺</div><div class="new-price">34.000 ₺ <small data-tr="/ kişi" data-en="/ person">/ kişi</small></div><div style="font-size:0.7rem;color:var(--sage);margin-top:0.25rem;">2. Dönem</div></div>
-          <button class="btn-select" data-tr="Seç & Kayıt Ol" data-en="Select & Register" onclick="window.open('https://forms.gle/B6Qa5uLHykzkNAfq8','_blank')">Seç & Kayıt Ol</button>
+          <button class="btn-select" data-tr="Kayıtlar Kapandı" data-en="Registration Closed" disabled>Kayıtlar Kapandı</button>
         </div>
       </div>
       <!-- Sığırcık -->
@@ -633,7 +636,7 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
         </div>
         <div class="ticket-footer">
           <div><div class="old-price">35.000 ₺</div><div class="new-price">30.500 ₺ <small data-tr="/ kişi" data-en="/ person">/ kişi</small></div><div style="font-size:0.8rem;color:var(--gold);margin-top:0.2rem;" data-tr="2. Dönem" data-en="2nd Period">2. Dönem</div></div>
-          <button class="btn-select" data-tr="Seç & Kayıt Ol" data-en="Select & Register" onclick="window.open('https://forms.gle/B6Qa5uLHykzkNAfq8','_blank')">Seç & Kayıt Ol</button>
+          <button class="btn-select" data-tr="Kayıtlar Kapandı" data-en="Registration Closed" disabled>Kayıtlar Kapandı</button>
         </div>
       </div>
       <!-- Kırlangıç -->
@@ -662,7 +665,7 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
         </div>
         <div class="ticket-footer">
           <div><div class="old-price">29.000 ₺</div><div class="new-price">23.000 ₺ <small data-tr="/ kişi" data-en="/ person">/ kişi</small></div></div>
-          <button class="btn-select" data-tr="Seç & Kayıt Ol" data-en="Select & Register" onclick="window.open('https://forms.gle/B6Qa5uLHykzkNAfq8','_blank')">Seç & Kayıt Ol</button>
+          <button class="btn-select" data-tr="Kayıtlar Kapandı" data-en="Registration Closed" disabled>Kayıtlar Kapandı</button>
         </div>
       </div>
     </div>
