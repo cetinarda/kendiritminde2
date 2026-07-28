@@ -224,7 +224,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0.9rem 3rem;
 .ticket-includes li{display:flex;align-items:flex-start;gap:0.55rem;font-size:0.8rem;color:rgba(184,204,180,0.78);line-height:1.4;}
 .ticket-includes li::before{content:'·';color:var(--moss);font-size:1.3rem;line-height:0.9;flex-shrink:0;}
 .ticket-footer{padding:1.4rem 2rem 2rem;border-top:1px solid rgba(255,255,255,0.055);
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:1rem;}
 .old-price{font-size:0.8rem;color:rgba(184,204,180,0.35);text-decoration:line-through;margin-bottom:0.05rem;}
 .new-price{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--gold);line-height:1;}
 .new-price small{font-size:0.73rem;color:var(--sage);font-family:'DM Sans',sans-serif;}
@@ -241,6 +241,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0.9rem 3rem;
 .payment-note{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:1rem;}
 .pay-item{display:flex;align-items:flex-start;gap:0.7rem;padding:1rem 1.2rem;
   background:rgba(46,74,48,0.11);border-radius:12px;font-size:0.8rem;color:var(--mist);line-height:1.5;}
+.closing-note{margin-top:3rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.9rem;
+  padding:2.4rem 1.5rem;background:linear-gradient(135deg,rgba(196,160,68,0.09),rgba(46,74,48,0.08));
+  border:1px solid rgba(196,160,68,0.2);border-radius:18px;}
+.closing-emoji{font-size:2rem;}
+.closing-note p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.35rem,3vw,1.9rem);
+  color:var(--pale-gold);letter-spacing:0.02em;line-height:1.4;}
 
 /* ── TRAVEL ── */
 .travel-section{background:var(--deep);}
@@ -605,7 +611,6 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
           </ul>
         </div>
         <div class="ticket-footer">
-          <div><div class="old-price">39.000 ₺</div><div class="new-price">34.000 ₺ <small data-tr="/ kişi" data-en="/ person">/ kişi</small></div><div style="font-size:0.7rem;color:var(--sage);margin-top:0.25rem;">2. Dönem</div></div>
           <button class="btn-select" data-tr="Kayıtlar Kapandı" data-en="Registration Closed" disabled>Kayıtlar Kapandı</button>
         </div>
       </div>
@@ -635,7 +640,6 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
           </ul>
         </div>
         <div class="ticket-footer">
-          <div><div class="old-price">35.000 ₺</div><div class="new-price">30.500 ₺ <small data-tr="/ kişi" data-en="/ person">/ kişi</small></div><div style="font-size:0.8rem;color:var(--gold);margin-top:0.2rem;" data-tr="2. Dönem" data-en="2nd Period">2. Dönem</div></div>
           <button class="btn-select" data-tr="Kayıtlar Kapandı" data-en="Registration Closed" disabled>Kayıtlar Kapandı</button>
         </div>
       </div>
@@ -664,14 +668,13 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
           </ul>
         </div>
         <div class="ticket-footer">
-          <div><div class="old-price">29.000 ₺</div><div class="new-price">23.000 ₺ <small data-tr="/ kişi" data-en="/ person">/ kişi</small></div></div>
           <button class="btn-select" data-tr="Kayıtlar Kapandı" data-en="Registration Closed" disabled>Kayıtlar Kapandı</button>
         </div>
       </div>
     </div>
-    <div class="payment-note">
-      <div class="pay-item"><div>✉️</div><div data-tr="Form sonrası ödeme detayları mail ile iletilir." data-en="Payment details sent via email after form submission.">Form sonrası ödeme detayları mail ile iletilir.</div></div>
-      <div class="pay-item"><div>💬</div><div data-tr="Kayıt sonrası tam vaktinde wp grubunda buluşacağız ve ön bilgilendirmeleri yapacağız." data-en="After registration, we'll meet in the WhatsApp group closer to the date and share pre-event info.">Kayıt sonrası tam vaktinde wp grubunda buluşacağız ve ön bilgilendirmeleri yapacağız.</div></div>
+    <div class="closing-note">
+      <div class="closing-emoji">🌿</div>
+      <p data-tr="Seneye görüşürüz, bizi takipte kalın" data-en="See you next year, stay tuned">Seneye görüşürüz, bizi takipte kalın</p>
     </div>
   </div>
 </section>
