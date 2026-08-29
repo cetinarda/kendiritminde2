@@ -175,6 +175,37 @@ img{display:block;max-width:100%;}
   justify-content:center;gap:0.8rem;font-size:0.9rem;color:var(--mist);
   background:rgba(36,16,64,0.5);border:1px solid rgba(79,216,196,0.22);border-radius:14px;padding:1.1rem 1.4rem;}
 
+/* pricing */
+.disc-badge{display:block;text-align:center;font-size:0.8rem;letter-spacing:0.1em;color:var(--gold);
+  margin:-1rem auto 2rem;}
+.disc-badge b{color:var(--pink);font-weight:600;}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.3rem;max-width:960px;margin:0 auto;}
+.price-card{background:rgba(36,16,64,0.6);border:1px solid rgba(255,95,162,0.22);border-radius:18px;
+  padding:1.8rem 1.5rem;text-align:center;transition:transform 0.3s,box-shadow 0.3s;}
+.price-card:hover{transform:translateY(-5px);box-shadow:0 18px 46px rgba(255,95,162,0.18);}
+.price-card.feat{border-color:rgba(255,196,107,0.55);background:rgba(58,26,94,0.55);position:relative;}
+.price-card.feat::before{content:"En Çok Tercih";position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--pink),var(--orange));color:#fff;font-size:0.6rem;letter-spacing:0.12em;
+  text-transform:uppercase;padding:0.28rem 0.9rem;border-radius:999px;white-space:nowrap;}
+.price-card .ptype{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--cream);margin-bottom:0.2rem;}
+.price-card .proom{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;}
+.price-card .pnormal{font-size:0.9rem;color:var(--mist);text-decoration:line-through;opacity:0.65;}
+.price-card .perken{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:600;color:var(--gold);
+  line-height:1.1;margin-top:0.1rem;text-shadow:0 0 18px rgba(255,196,107,0.3);}
+.price-card .perken small{font-size:0.85rem;color:var(--pink-soft);font-family:'DM Sans',sans-serif;font-weight:400;}
+.price-note{text-align:center;font-size:0.85rem;color:var(--gold);margin-top:2rem;}
+.reg-cta{display:flex;flex-direction:column;align-items:center;gap:0.7rem;margin-top:2.4rem;}
+.btn-reg{display:inline-block;background:linear-gradient(135deg,var(--pink),var(--orange));color:#fff;
+  text-decoration:none;padding:1rem 2.6rem;border-radius:999px;font-weight:600;font-size:1.02rem;letter-spacing:0.03em;
+  box-shadow:0 10px 30px rgba(255,95,162,0.42);transition:transform 0.25s,box-shadow 0.25s;}
+.btn-reg:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,95,162,0.55);}
+.btn-reg.big{font-size:1.1rem;padding:1.1rem 3rem;}
+.reg-cta .fine{font-size:0.76rem;color:var(--mist);opacity:0.75;}
+.hero-cta{display:inline-block;margin-top:0.4rem;background:linear-gradient(135deg,var(--pink),var(--orange));
+  color:#fff;text-decoration:none;padding:0.85rem 2.2rem;border-radius:999px;font-weight:600;font-size:0.95rem;
+  letter-spacing:0.03em;box-shadow:0 10px 30px rgba(255,95,162,0.45);transition:transform 0.25s;}
+.hero-cta:hover{transform:translateY(-2px);}
+
 /* footer */
 footer{text-align:center;padding:3rem 1.4rem 4rem;border-top:1px solid rgba(255,95,162,0.15);margin-top:2rem;}
 footer .fbrand{font-family:'Kaushan Script',cursive;font-size:1.6rem;color:var(--pink-soft);
@@ -193,7 +224,10 @@ footer p{font-size:0.8rem;color:var(--mist);margin-top:0.6rem;opacity:0.8;}
 
 <div class="topbar">
   <a href="index.html" class="brand" style="text-decoration:none;">kendiritminde</a>
-  <a href="index.html" class="back">← Ana Sayfa</a>
+  <div style="display:flex;align-items:center;gap:0.7rem;">
+    <a href="index.html" class="back">← Ana Sayfa</a>
+    <a href="https://forms.gle/ZmvmhQrk2efSeeev9" target="_blank" rel="noopener noreferrer" class="back" style="border-color:var(--pink);color:var(--pink);">Kayıt Ol</a>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -201,6 +235,7 @@ footer p{font-size:0.8rem;color:var(--mist);margin-top:0.6rem;opacity:0.8;}
   <div class="hero-badge">✦ kendiritminde 5.1 · yeni buluşma</div>
   <div class="hero-poster"><img src="1.png" alt="Patara Buluşması · 27-30 Eylül · Antik Gezi · Müzik · Derin Dinlenme"></div>
   <div class="loc">Patara · Kaş — Antalya</div>
+  <a class="hero-cta" href="https://forms.gle/ZmvmhQrk2efSeeev9" target="_blank" rel="noopener noreferrer">Kayıt Ol →</a>
   <div class="scroll-cue">keşfet ↓</div>
 </header>
 
@@ -356,6 +391,38 @@ footer p{font-size:0.8rem;color:var(--mist);margin-top:0.6rem;opacity:0.8;}
   </div>
 </section>
 
+<!-- FİYATLAR & KAYIT -->
+<section class="section" id="kayit">
+  <div class="eyebrow">Fiyatlar & Kayıt</div>
+  <h2 class="title">Erken Kayıt Fiyatları</h2>
+  <div class="disc-badge"><b>%15 Erken Kayıt İndirimi</b> · 3 Gece · 4 Gün</div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="ptype">3 Kişilik Oda</div>
+      <div class="proom">Paylaşımlı</div>
+      <div class="pnormal">Normal: 22.500 ₺</div>
+      <div class="perken">19.125 ₺ <small>/ kişi</small></div>
+    </div>
+    <div class="price-card feat">
+      <div class="ptype">2 Kişilik Oda</div>
+      <div class="proom">Paylaşımlı</div>
+      <div class="pnormal">Normal: 27.500 ₺</div>
+      <div class="perken">23.375 ₺ <small>/ kişi</small></div>
+    </div>
+    <div class="price-card">
+      <div class="ptype">Tek Kişilik Oda</div>
+      <div class="proom">Özel</div>
+      <div class="pnormal">Normal: 35.000 ₺</div>
+      <div class="perken">29.750 ₺ <small>/ kişi</small></div>
+    </div>
+  </div>
+  <p class="price-note">Erken kayıt sınırlıdır ve <strong style="color:var(--pink-soft);">10 Eylül</strong>'e kadar geçerlidir. 🌿</p>
+  <div class="reg-cta">
+    <a class="btn-reg big" href="https://forms.gle/ZmvmhQrk2efSeeev9" target="_blank" rel="noopener noreferrer">🌿 Kayıt Formunu Doldur →</a>
+    <span class="fine">Formu inceledikten sonra ödeme ve konaklama detaylarını mail yoluyla iletiyoruz.</span>
+  </div>
+</section>
+
 <!-- ULAŞIM -->
 <section class="section">
   <div class="eyebrow">Ulaşım</div>
@@ -385,6 +452,7 @@ footer p{font-size:0.8rem;color:var(--mist);margin-top:0.6rem;opacity:0.8;}
     <p>Formu inceledikten sonra ödeme ve konaklama detaylarını mail yoluyla iletiyoruz. Form bilgilerini dilediğin zaman güncelleyebilirsin.</p>
   </div>
   <div class="contact">
+    <a href="https://forms.gle/ZmvmhQrk2efSeeev9" target="_blank" rel="noopener noreferrer" style="border-color:var(--gold);color:var(--gold);">📝 Kayıt Formu</a>
     <a href="https://instagram.com/kendiritminde/" target="_blank" rel="noopener noreferrer">📸 instagram.com/kendiritminde</a>
     <a href="tel:+905344182312">📞 +90 534 418 23 12 · Arda</a>
     <a href="mailto:kendiritmindebulusmalar@gmail.com">✉️ kendiritmindebulusmalar@gmail.com</a>
