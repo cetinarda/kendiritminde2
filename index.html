@@ -19,6 +19,36 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+/* ── PATARA ANNOUNCEMENT POPUP ── */
+.pop-ov{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;
+  padding:1.2rem;background:rgba(8,4,18,0.82);backdrop-filter:blur(8px);opacity:0;visibility:hidden;
+  transition:opacity 0.4s ease,visibility 0.4s ease;}
+.pop-ov.open{opacity:1;visibility:visible;}
+.pop-card{position:relative;width:100%;max-width:400px;border-radius:22px;overflow:hidden;
+  background:#180a2e;border:1px solid rgba(255,95,162,0.35);
+  box-shadow:0 30px 80px rgba(0,0,0,0.6),0 0 40px rgba(255,95,162,0.25);
+  transform:translateY(24px) scale(0.96);transition:transform 0.45s cubic-bezier(0.2,0.8,0.2,1);}
+.pop-ov.open .pop-card{transform:translateY(0) scale(1);}
+.pop-close{position:absolute;top:0.7rem;right:0.7rem;z-index:3;width:34px;height:34px;border-radius:50%;
+  border:none;background:rgba(8,4,18,0.55);color:#fff;font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:background 0.2s;}
+.pop-close:hover{background:rgba(255,95,162,0.6);}
+.pop-img{position:relative;aspect-ratio:1/1;overflow:hidden;}
+.pop-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.pop-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#180a2e 100%);}
+.pop-body{padding:1.3rem 1.5rem 1.6rem;text-align:center;}
+.pop-kicker{font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:#4fd8c4;margin-bottom:0.5rem;}
+.pop-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:#ff8fb8;
+  line-height:1.1;margin-bottom:0.35rem;text-shadow:0 0 20px rgba(255,95,162,0.4);}
+.pop-date{font-size:0.9rem;letter-spacing:0.14em;color:#ffc46b;margin-bottom:0.3rem;font-weight:500;}
+.pop-loc{font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--mist);margin-bottom:1.2rem;}
+.pop-cta{display:inline-block;background:linear-gradient(135deg,#ff5fa2,#ff8a5c);color:#fff;text-decoration:none;
+  padding:0.8rem 2rem;border-radius:999px;font-weight:600;font-size:0.9rem;letter-spacing:0.03em;
+  box-shadow:0 8px 26px rgba(255,95,162,0.4);transition:transform 0.25s;}
+.pop-cta:hover{transform:translateY(-2px);}
+.pop-later{display:block;margin-top:0.9rem;font-size:0.74rem;color:var(--mist);opacity:0.7;
+  background:none;border:none;cursor:pointer;width:100%;letter-spacing:0.04em;}
+.pop-later:hover{opacity:1;}
 body{font-family:'DM Sans',sans-serif;background:var(--void);color:var(--cream);overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -388,6 +418,20 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
 </head>
 <body>
 
+<!-- PATARA ANNOUNCEMENT POPUP -->
+<div class="pop-ov" id="pataraPop" onclick="pataraPopOut(event)">
+  <div class="pop-card">
+    <button class="pop-close" onclick="closePataraPop()" aria-label="Kapat">✕</button>
+    <a href="patara.html" class="pop-img"><img src="1.png" alt="Patara Buluşması"></a>
+    <div class="pop-body">
+      <div class="pop-kicker">✦ kendiritminde 5.1 · Yeni Buluşma</div>
+      <div class="pop-loc" style="margin-bottom:1.3rem;">Patara · Kaş — Antalya · 3 gece 4 gün</div>
+      <a href="patara.html" class="pop-cta">Detayları Gör →</a>
+      <button class="pop-later" onclick="closePataraPop()">Şimdi değil</button>
+    </div>
+  </div>
+</div>
+
 <div class="starfield" id="starfield"></div>
 
 <!-- NAV -->
@@ -408,7 +452,7 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
       <button class="lang-btn active" onclick="setLang('tr')">TR</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
-    <a href="#biletler" class="btn-nav" data-tr="Kayıt Ol →" data-en="Register →">Kayıt Ol →</a>
+    <a href="patara.html" class="btn-nav" data-tr="Patara 5.1 →" data-en="Patara 5.1 →">Patara 5.1 →</a>
   </div>
 </nav>
 
@@ -1071,6 +1115,7 @@ document.addEventListener('keydown', e => {
     if(e.key==='ArrowLeft') galMove(-1);
     if(e.key==='Escape') galLbCloseDirect();
   }
+  if(e.key==='Escape' && document.getElementById('pataraPop').classList.contains('open')) closePataraPop();
 });
 </script><script>
 /* ── STARS ── */
@@ -1093,6 +1138,24 @@ for(let i=0;i<130;i++){
 let currentLang = 'tr';
 buildGalGrid();
 document.getElementById('galContent').style.display = 'none';
+
+/* ── PATARA ANNOUNCEMENT POPUP ── */
+function closePataraPop(){
+  document.getElementById('pataraPop').classList.remove('open');
+  document.body.style.overflow='';
+  try{sessionStorage.setItem('pataraPopSeen','1');}catch(e){}
+}
+function pataraPopOut(e){if(e.target===document.getElementById('pataraPop'))closePataraPop();}
+(function(){
+  let seen=false;
+  try{seen=sessionStorage.getItem('pataraPopSeen')==='1';}catch(e){}
+  if(!seen){
+    setTimeout(function(){
+      document.getElementById('pataraPop').classList.add('open');
+      document.body.style.overflow='hidden';
+    },900);
+  }
+})();
 function setLang(lang) {
   currentLang = lang;
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent===lang.toUpperCase()));
