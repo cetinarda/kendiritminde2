@@ -110,14 +110,15 @@ img{display:block;max-width:100%;}
   font-size:1.5rem;color:var(--gold);text-shadow:0 0 18px rgba(255,196,107,0.35);}
 
 /* program cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;align-items:stretch;}
 .card{position:relative;border-radius:18px;overflow:hidden;background:rgba(36,16,64,0.6);
-  border:1px solid rgba(255,95,162,0.2);transition:transform 0.35s,box-shadow 0.35s;}
+  border:1px solid rgba(255,95,162,0.2);transition:transform 0.35s,box-shadow 0.35s;
+  display:flex;flex-direction:column;height:100%;}
 .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(255,95,162,0.18);}
-.card .ph{aspect-ratio:1/1;overflow:hidden;}
+.card .ph{aspect-ratio:1/1;overflow:hidden;flex-shrink:0;}
 .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;}
 .card:hover .ph img{transform:scale(1.05);}
-.card .body{padding:1.2rem 1.35rem 1.5rem;}
+.card .body{padding:1.2rem 1.35rem 1.5rem;display:flex;flex-direction:column;flex:1;}
 .card .ico{font-size:1.2rem;margin-bottom:0.5rem;}
 .card .cname{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--cream);
   line-height:1.15;margin-bottom:0.3rem;}
@@ -454,7 +455,7 @@ footer p{font-size:0.8rem;color:var(--mist);margin-top:0.6rem;opacity:0.8;}
   <div class="contact">
     <a href="https://forms.gle/ZmvmhQrk2efSeeev9" target="_blank" rel="noopener noreferrer" style="border-color:var(--gold);color:var(--gold);">📝 Kayıt Formu</a>
     <a href="https://instagram.com/kendiritminde/" target="_blank" rel="noopener noreferrer">📸 instagram.com/kendiritminde</a>
-    <a href="tel:+905344182312">📞 +90 534 418 23 12 · Arda</a>
+    <a href="tel:+905304412547">📞 +90 530 441 25 47 · Serde</a>
     <a href="mailto:kendiritmindebulusmalar@gmail.com">✉️ kendiritmindebulusmalar@gmail.com</a>
   </div>
   <div class="guarantee">
