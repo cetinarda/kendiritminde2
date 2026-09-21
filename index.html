@@ -384,9 +384,40 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
 #galPrev{left:-22px;} #galNext{right:-22px;}
 @media(max-width:600px){#galPrev{left:-10px;}#galNext{right:-10px;}}
 
+/* ── PATARA CANCELLATION POPUP ── */
+.pop-ov{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;
+  padding:1.2rem;background:rgba(7,9,10,0.82);backdrop-filter:blur(8px);opacity:0;visibility:hidden;
+  transition:opacity 0.4s ease,visibility 0.4s ease;}
+.pop-ov.open{opacity:1;visibility:visible;}
+.pop-card{position:relative;width:100%;max-width:420px;border-radius:22px;overflow:hidden;
+  background:var(--deep);border:1px solid rgba(196,160,68,0.3);
+  box-shadow:0 30px 80px rgba(0,0,0,0.6);padding:2.6rem 2rem 2.2rem;text-align:center;
+  transform:translateY(24px) scale(0.96);transition:transform 0.45s cubic-bezier(0.2,0.8,0.2,1);}
+.pop-ov.open .pop-card{transform:translateY(0) scale(1);}
+.pop-close{position:absolute;top:0.8rem;right:0.8rem;z-index:3;width:34px;height:34px;border-radius:50%;
+  border:none;background:rgba(255,255,255,0.06);color:var(--cream);font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
+.pop-close:hover{background:rgba(196,160,68,0.3);}
+.pop-emoji{font-size:2.1rem;margin-bottom:1rem;}
+.pop-kicker{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.9rem;}
+.pop-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:500;font-style:italic;
+  color:var(--cream);line-height:1.4;margin-bottom:1rem;}
+.pop-body{font-size:0.92rem;color:var(--mist);line-height:1.7;}
+
 </style>
 </head>
 <body>
+
+<!-- PATARA CANCELLATION POPUP -->
+<div class="pop-ov" id="pataraCancelPop" onclick="pataraCancelPopOut(event)">
+  <div class="pop-card">
+    <button class="pop-close" onclick="closePataraCancelPop()" aria-label="Kapat">✕</button>
+    <div class="pop-emoji">🌿</div>
+    <div class="pop-kicker" data-tr="Duyuru" data-en="Announcement">Duyuru</div>
+    <div class="pop-title" data-tr="5.1 Patara Buluşmamız ülkenin ekonomik koşulları sebebiyle iptal edilmiştir." data-en="Our 5.1 Patara Gathering has been cancelled due to the country's economic conditions.">5.1 Patara Buluşmamız ülkenin ekonomik koşulları sebebiyle iptal edilmiştir.</div>
+    <p class="pop-body" data-tr="Anlayışınız için teşekkür ederiz. Tekrar uygun ortam olduğunda buluşmak üzere. 🌿" data-en="Thank you for your understanding. Until we meet again when conditions allow. 🌿">Anlayışınız için teşekkür ederiz. Tekrar uygun ortam olduğunda buluşmak üzere. 🌿</p>
+  </div>
+</div>
 
 <div class="starfield" id="starfield"></div>
 
@@ -674,7 +705,7 @@ footer p{font-size:0.78rem;color:rgba(184,204,180,0.32);margin-top:1.2rem;}
     </div>
     <div class="closing-note">
       <div class="closing-emoji">🌿</div>
-      <p data-tr="Seneye görüşürüz, bizi takipte kalın" data-en="See you next year, stay tuned">Seneye görüşürüz, bizi takipte kalın</p>
+      <p data-tr="Tekrar uygun ortam olduğunda buluşmak üzere" data-en="Until we meet again when conditions allow">Tekrar uygun ortam olduğunda buluşmak üzere</p>
     </div>
   </div>
 </section>
@@ -1071,6 +1102,7 @@ document.addEventListener('keydown', e => {
     if(e.key==='ArrowLeft') galMove(-1);
     if(e.key==='Escape') galLbCloseDirect();
   }
+  if(e.key==='Escape' && document.getElementById('pataraCancelPop').classList.contains('open')) closePataraCancelPop();
 });
 </script><script>
 /* ── STARS ── */
@@ -1088,6 +1120,24 @@ for(let i=0;i<130;i++){
     animation:`tw ${1.8+Math.random()*4}s ease-in-out infinite ${Math.random()*6}s`});
   sf.appendChild(s);
 }
+
+/* ── PATARA CANCELLATION POPUP ── */
+function closePataraCancelPop(){
+  document.getElementById('pataraCancelPop').classList.remove('open');
+  document.body.style.overflow='';
+  try{sessionStorage.setItem('pataraCancelPopSeen','1');}catch(e){}
+}
+function pataraCancelPopOut(e){if(e.target===document.getElementById('pataraCancelPop'))closePataraCancelPop();}
+(function(){
+  let seen=false;
+  try{seen=sessionStorage.getItem('pataraCancelPopSeen')==='1';}catch(e){}
+  if(!seen){
+    setTimeout(function(){
+      document.getElementById('pataraCancelPop').classList.add('open');
+      document.body.style.overflow='hidden';
+    },700);
+  }
+})();
 
 /* ── LANGUAGE TOGGLE ── */
 let currentLang = 'tr';
